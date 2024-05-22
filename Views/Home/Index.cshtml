@@ -1,0 +1,43 @@
+﻿@model Calculator1.Models.CalculatorModel
+
+@{
+    ViewData["Title"] = "Calculator";
+}
+
+<h1>Calculator</h1>
+
+<form method="post">
+    <div>
+        <label for="number1">Number 1:</label>
+        <input type="number" id="number1" name="Number1" required />
+    </div>
+    <div>
+        <label for="number2">Number 2:</label>
+        <input type="number" id="number2" name="Number2" required />
+    </div>
+    <div>
+        <label for="operation">Operation:</label>
+        <select id="operation" name="Operation" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
+
+@if (Model.Result != null)
+{
+    <div>
+        <h2>Result: @Model.Result</h2>
+    </div>
+}
+
+@if (Model.ErrorMessage != null)
+{
+    <div style="color: red;">
+        <h2>Error: @Model.ErrorMessage</h2>
+    </div>
+}
+
